@@ -38,6 +38,7 @@ export class VerifyTokenUseCase {
         username: response.username as string,
         role: response.role as string,
         warehouse_id: response.warehouse_id as string,
+        branch_id: response.branch_id as string,
         status: response.status as string,
         createdAt: response.createdAt,
       };

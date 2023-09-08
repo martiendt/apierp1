@@ -35,13 +35,30 @@ export class RetrieveAllUserUseCase {
           },
         },
         {
+          $lookup: {
+            from: "branches",
+            localField: "branch_id",
+            foreignField: "_id",
+            pipeline: [{ $project: { name: 1 } }],
+            as: "branch",
+          },
+        },
+        {
           $set: {
             warehouse: {
               $arrayElemAt: ["$warehouse", 0],
             },
           },
         },
+        {
+          $set: {
+            branch: {
+              $arrayElemAt: ["$branch", 0],
+            },
+          },
+        },
         { $unset: ["warehouse_id"] },
+        { $unset: ["branch_id"] },
       ];
 
       if (query && query.fields) {
@@ -57,7 +74,7 @@ export class RetrieveAllUserUseCase {
       }
 
       const response = await new AggregateUserRepository(this.db).handle(pipeline, query, options);
-
+      console.log(response);
       return {
         data: response.data,
         pagination: response.pagination,

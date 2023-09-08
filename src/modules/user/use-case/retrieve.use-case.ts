@@ -13,6 +13,10 @@ interface ResponseInterface {
     _id: string;
     name: string;
   };
+  branch: {
+    _id: string;
+    name: string;
+  };
   status?: UserStatusTypes;
   createdAt?: Date;
 }
@@ -55,7 +59,25 @@ export class RetrieveUserUseCase {
             },
           },
         },
+
+        {
+          $lookup: {
+            from: "branches",
+            localField: "branch_id",
+            foreignField: "_id",
+            pipeline: [{ $project: { name: 1 } }],
+            as: "branch",
+          },
+        },
+        {
+          $set: {
+            branch: {
+              $arrayElemAt: ["$branch", 0],
+            },
+          },
+        },
         { $unset: ["warehouse_id"] },
+        { $unset: ["branch_id"] },
       ];
 
       const response = await new AggregateUserRepository(this.db).handle(
@@ -76,6 +98,7 @@ export class RetrieveUserUseCase {
         username: response.data[0].username,
         role: response.data[0].role,
         warehouse: response.data[0].warehouse,
+        branch: response.data[0].branch,
         status: response.data[0].status,
         createdAt: response.data[0].createdAt,
       };

@@ -1,4 +1,5 @@
 import express, { Express } from "express";
+import branchRouter from "./modules/branch/router.js";
 import brancExpenseRouter from "./modules/branch-expense/router.js";
 import customerRouter from "./modules/customer/router.js";
 import financeRouter from "./modules/finance/router.js";
@@ -22,6 +23,7 @@ export default function () {
    * <modules>/router.ts
    */
   app.use("/v1/users", userRouter);
+  app.use("/v1/branches", branchRouter);
   app.use("/v1/warehouses", warehouseRouter);
   app.use("/v1/suppliers", supplierRouter);
   app.use("/v1/customers", customerRouter);

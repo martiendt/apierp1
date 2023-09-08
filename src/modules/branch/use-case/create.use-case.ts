@@ -1,12 +1,11 @@
 import { objClean } from "@point-hub/express-utils";
-import { CreateUserRepository } from "../model/repository/create.repository.js";
-import { UserEntity, UserStatusTypes } from "../model/user.entity.js";
+import { CreateBranchRepository } from "../model/repository/create.repository.js";
+import { BranchEntity } from "../model/branch.entity.js";
 import { validate } from "../validation/create.validation.js";
-import { VerifyTokenUseCase } from "./verify-token.use-case.js";
 import DatabaseConnection, { CreateOptionsInterface, DocumentInterface } from "@src/database/connection.js";
-import { hash } from "@src/utils/hash.js";
+import { VerifyTokenUseCase } from "@src/modules/user/use-case/verify-token.use-case.js";
 
-export class CreateUserUseCase {
+export class CreateBranchUseCase {
   private db: DatabaseConnection;
 
   constructor(db: DatabaseConnection) {
@@ -26,23 +25,15 @@ export class CreateUserUseCase {
       validate(document);
 
       // save to database
-      const userEntity = objClean(
-        new UserEntity({
+      const branchEntity = objClean(
+        new BranchEntity({
           name: document.name,
-          username: document.username,
-          password: await hash(document.password),
-          role: document.role,
-          branch_id: document.branch_id,
-          warehouse_id: document.warehouse_id,
-          status: UserStatusTypes.Active,
           createdAt: new Date(),
           createdBy_id: authUser._id,
         })
       );
 
-      const response = await new CreateUserRepository(this.db).handle(userEntity, {
-        session: options.session,
-      });
+      const response = await new CreateBranchRepository(this.db).handle(branchEntity, options);
 
       return {
         acknowledged: response.acknowledged,

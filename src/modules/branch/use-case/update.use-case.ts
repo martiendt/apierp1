@@ -1,11 +1,11 @@
 import { objClean } from "@point-hub/express-utils";
-import { UpdateUserRepository } from "../model/repository/update.repository.js";
-import { UserEntity } from "../model/user.entity.js";
+import { UpdateBranchRepository } from "../model/repository/update.repository.js";
+import { BranchEntity } from "../model/branch.entity.js";
 import { validate } from "../validation/update.validation.js";
-import { VerifyTokenUseCase } from "./verify-token.use-case.js";
 import DatabaseConnection, { UpdateOptionsInterface, DocumentInterface } from "@src/database/connection.js";
+import { VerifyTokenUseCase } from "@src/modules/user/use-case/verify-token.use-case.js";
 
-export class UpdateUserUseCase {
+export class UpdateBranchUseCase {
   private db: DatabaseConnection;
 
   constructor(db: DatabaseConnection) {
@@ -25,16 +25,16 @@ export class UpdateUserUseCase {
       validate(document);
 
       // update database
-      const userEntity = new UserEntity({
-        role: document.role,
-        branch_id: document.branch_id,
-        warehouse_id: document.warehouse_id,
+      const branchEntity = new BranchEntity({
+        name: document.name,
         updatedAt: new Date(),
         updatedBy_id: authUser._id,
       });
 
-      const userRepository = new UpdateUserRepository(this.db);
-      await userRepository.handle(id, objClean(userEntity), options);
+      const branchRepository = new UpdateBranchRepository(this.db);
+      await branchRepository.handle(id, objClean(branchEntity), {
+        session: options.session,
+      });
 
       return;
     } catch (error) {

@@ -12,6 +12,7 @@ export enum UserRolesTypes {
 
 export interface UserEntityInterface {
   _id?: string;
+  branch_id?: string;
   warehouse_id?: string;
   name?: string;
   username?: string;
@@ -26,6 +27,7 @@ export interface UserEntityInterface {
 
 export class UserEntity implements UserEntityInterface {
   public _id?: string;
+  public branch_id?: string;
   public warehouse_id?: string;
   public name?: string;
   public username?: string;
@@ -39,6 +41,7 @@ export class UserEntity implements UserEntityInterface {
 
   constructor(user: UserEntityInterface) {
     this._id = user._id;
+    this.branch_id = user.branch_id;
     this.warehouse_id = user.warehouse_id;
     this.name = user.name;
     this.username = user.username;
