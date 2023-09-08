@@ -2,6 +2,7 @@ import express, { Express } from "express";
 import branchRouter from "./modules/branch/router.js";
 import brancExpenseRouter from "./modules/branch-expense/router.js";
 import customerRouter from "./modules/customer/router.js";
+import expeditionRouter from "./modules/expedition/router.js";
 import financeRouter from "./modules/finance/router.js";
 import inventoryRouter from "./modules/inventory/router.js";
 import itemRouter from "./modules/item/router.js";
@@ -27,6 +28,7 @@ export default function () {
   app.use("/v1/warehouses", warehouseRouter);
   app.use("/v1/suppliers", supplierRouter);
   app.use("/v1/customers", customerRouter);
+  app.use("/v1/expeditions", expeditionRouter);
   app.use("/v1/item-categories", itemCategoryRouter);
   app.use("/v1/items", itemRouter);
   app.use("/v1/purchases", purchaseRouter);
