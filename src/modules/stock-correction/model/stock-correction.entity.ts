@@ -1,0 +1,45 @@
+export interface ItemInterface {
+  _id?: string;
+  name?: string;
+  size?: string;
+  color?: string;
+  quantity?: number;
+  price?: number;
+  total?: number;
+}
+
+export interface StockCorrectionEntityInterface {
+  _id?: string;
+  received_id?: string;
+  date?: string;
+  warehouse_id?: string;
+  items?: ItemInterface[];
+  createdAt?: Date;
+  updatedAt?: Date;
+  createdBy_id?: string;
+  updatedBy_id?: string;
+}
+
+export class StockCorrectionEntity implements StockCorrectionEntityInterface {
+  public _id?: string;
+  public received_id?: string;
+  public date?: string;
+  public warehouse_id?: string;
+  public items?: ItemInterface[];
+  public createdAt?: Date;
+  public updatedAt?: Date;
+  public createdBy_id?: string;
+  public updatedBy_id?: string;
+
+  constructor(stockCorrection: StockCorrectionEntityInterface) {
+    this._id = stockCorrection._id;
+    this.received_id = stockCorrection.received_id;
+    this.date = stockCorrection.date;
+    this.warehouse_id = stockCorrection.warehouse_id;
+    this.items = stockCorrection.items;
+    this.createdAt = stockCorrection.createdAt;
+    this.updatedAt = stockCorrection.updatedAt;
+    this.createdBy_id = stockCorrection.createdBy_id;
+    this.updatedBy_id = stockCorrection.updatedBy_id;
+  }
+}
