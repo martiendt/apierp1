@@ -27,6 +27,7 @@ export class CreateCustomerUseCase {
       // save to database
       const customerEntity = objClean(
         new CustomerEntity({
+          code: document.code,
           name: document.name,
           address: document.address,
           phone: document.phone,

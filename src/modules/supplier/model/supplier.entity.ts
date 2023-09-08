@@ -1,5 +1,6 @@
 export interface SupplierEntityInterface {
   _id?: string;
+  code?: string;
   name?: string;
   address?: string;
   phone?: string;
@@ -12,6 +13,7 @@ export interface SupplierEntityInterface {
 
 export class SupplierEntity implements SupplierEntityInterface {
   public _id?: string;
+  public code?: string;
   public name?: string;
   public address?: string;
   public phone?: string;
@@ -23,6 +25,7 @@ export class SupplierEntity implements SupplierEntityInterface {
 
   constructor(supplier: SupplierEntityInterface) {
     this._id = supplier._id;
+    this.code = supplier.code;
     this.name = supplier.name;
     this.address = supplier.address;
     this.phone = supplier.phone;

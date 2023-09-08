@@ -1,5 +1,6 @@
 export interface CustomerEntityInterface {
   _id?: string;
+  code?: string;
   name?: string;
   address?: string;
   phone?: string;
@@ -12,6 +13,7 @@ export interface CustomerEntityInterface {
 
 export class CustomerEntity implements CustomerEntityInterface {
   public _id?: string;
+  public code?: string;
   public name?: string;
   public address?: string;
   public phone?: string;
@@ -23,6 +25,7 @@ export class CustomerEntity implements CustomerEntityInterface {
 
   constructor(customer: CustomerEntityInterface) {
     this._id = customer._id;
+    this.code = customer.code;
     this.name = customer.name;
     this.address = customer.address;
     this.phone = customer.phone;

@@ -26,6 +26,7 @@ export class UpdateSupplierUseCase {
 
       // update database
       const supplierEntity = new SupplierEntity({
+        code: document.code,
         name: document.name,
         address: document.address,
         phone: document.phone,

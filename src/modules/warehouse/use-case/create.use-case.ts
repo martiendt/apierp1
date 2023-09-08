@@ -27,6 +27,7 @@ export class CreateWarehouseUseCase {
       // save to database
       const warehouseEntity = objClean(
         new WarehouseEntity({
+          code: document.code,
           name: document.name,
           createdAt: new Date(),
           createdBy_id: authUser._id,

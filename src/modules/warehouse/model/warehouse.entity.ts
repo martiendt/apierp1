@@ -1,5 +1,6 @@
 export interface WarehouseEntityInterface {
   _id?: string;
+  code?: string;
   name?: string;
   createdAt?: Date;
   updatedAt?: Date;
@@ -9,6 +10,7 @@ export interface WarehouseEntityInterface {
 
 export class WarehouseEntity implements WarehouseEntityInterface {
   public _id?: string;
+  public code?: string;
   public name?: string;
   public createdAt?: Date;
   public updatedAt?: Date;
@@ -17,6 +19,7 @@ export class WarehouseEntity implements WarehouseEntityInterface {
 
   constructor(warehouse: WarehouseEntityInterface) {
     this._id = warehouse._id;
+    this.code = warehouse.code;
     this.name = warehouse.name;
     this.createdAt = warehouse.createdAt;
     this.updatedAt = warehouse.updatedAt;

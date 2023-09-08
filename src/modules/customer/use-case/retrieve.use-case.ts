@@ -4,6 +4,7 @@ import { VerifyTokenUseCase } from "@src/modules/user/use-case/verify-token.use-
 
 export interface ResponseInterface {
   _id: string;
+  code?: string;
   name?: string;
   address?: string;
   phone?: string;
@@ -30,6 +31,7 @@ export class RetrieveCustomerUseCase {
 
       return {
         _id: response._id,
+        code: response.code,
         name: response.name,
         address: response.address,
         phone: response.phone,

@@ -26,6 +26,7 @@ export class UpdateCustomerUseCase {
 
       // update database
       const customerEntity = new CustomerEntity({
+        code: document.code,
         name: document.name,
         address: document.address,
         phone: document.phone,
