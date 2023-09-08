@@ -4,6 +4,7 @@ import { VerifyTokenUseCase } from "@src/modules/user/use-case/verify-token.use-
 
 interface ResponseInterface {
   _id: string;
+  code?: string;
   name?: string;
   createdAt?: Date;
 }
@@ -27,6 +28,7 @@ export class RetrieveBranchUseCase {
 
       return {
         _id: response._id,
+        code: response.code,
         name: response.name,
         createdAt: response.createdAt,
       };

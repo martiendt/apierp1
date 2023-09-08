@@ -1,6 +1,7 @@
 export const branchSeeds = [
   {
-    name: "Central Branch",
+    code: "BR001",
+    name: "Main Branch",
     createdAt: new Date(),
   },
 ];

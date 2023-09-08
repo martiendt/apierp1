@@ -1,6 +1,6 @@
 import { objClean } from "@point-hub/express-utils";
-import { UpdateBranchRepository } from "../model/repository/update.repository.js";
 import { BranchEntity } from "../model/branch.entity.js";
+import { UpdateBranchRepository } from "../model/repository/update.repository.js";
 import { validate } from "../validation/update.validation.js";
 import DatabaseConnection, { UpdateOptionsInterface, DocumentInterface } from "@src/database/connection.js";
 import { VerifyTokenUseCase } from "@src/modules/user/use-case/verify-token.use-case.js";
@@ -26,6 +26,7 @@ export class UpdateBranchUseCase {
 
       // update database
       const branchEntity = new BranchEntity({
+        code: document.code,
         name: document.name,
         updatedAt: new Date(),
         updatedBy_id: authUser._id,

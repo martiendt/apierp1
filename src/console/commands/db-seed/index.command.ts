@@ -35,6 +35,12 @@ export default class DbSeedCommand extends BaseCommand {
       await dbConnection.collection("warehouses").deleteAll();
       const warehouseData = await dbConnection.collection("warehouses").createMany(warehouseSeeds);
       console.info(`[seed] seeding warehouses data`, warehouseData);
+
+      // seed warehouses colllection
+      const { branchSeeds } = await import("@src/modules/branch/model/branch.seed.js");
+      await dbConnection.collection("branches").deleteAll();
+      const branchData = await dbConnection.collection("branches").createMany(branchSeeds);
+      console.info(`[seed] seeding branches data`, branchData);
     } catch (error) {
       console.error(error);
     } finally {

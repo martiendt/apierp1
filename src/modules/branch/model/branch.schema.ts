@@ -22,13 +22,18 @@ export async function createCollection(db: IDatabaseAdapter) {
     console.info(`[schema] ${collection} - update schema`);
     await db.updateSchema(collection, {
       bsonType: "object",
-      required: ["name"],
+      required: ["code", "name"],
       properties: {
         name: {
           bsonType: "string",
           description: "The name for the branch",
         },
       },
+    });
+
+    console.info(`[schema] ${collection} - create unique attribute "code"`);
+    await helper.createUnique(collection, {
+      code: -1,
     });
 
     console.info(`[schema] ${collection} - create unique attribute "name"`);

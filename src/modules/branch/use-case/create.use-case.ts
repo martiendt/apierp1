@@ -1,6 +1,6 @@
 import { objClean } from "@point-hub/express-utils";
-import { CreateBranchRepository } from "../model/repository/create.repository.js";
 import { BranchEntity } from "../model/branch.entity.js";
+import { CreateBranchRepository } from "../model/repository/create.repository.js";
 import { validate } from "../validation/create.validation.js";
 import DatabaseConnection, { CreateOptionsInterface, DocumentInterface } from "@src/database/connection.js";
 import { VerifyTokenUseCase } from "@src/modules/user/use-case/verify-token.use-case.js";
@@ -27,6 +27,7 @@ export class CreateBranchUseCase {
       // save to database
       const branchEntity = objClean(
         new BranchEntity({
+          code: document.code,
           name: document.name,
           createdAt: new Date(),
           createdBy_id: authUser._id,

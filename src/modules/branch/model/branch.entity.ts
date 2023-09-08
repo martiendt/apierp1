@@ -1,5 +1,6 @@
 export interface BranchEntityInterface {
   _id?: string;
+  code?: string;
   name?: string;
   createdAt?: Date;
   updatedAt?: Date;
@@ -9,6 +10,7 @@ export interface BranchEntityInterface {
 
 export class BranchEntity implements BranchEntityInterface {
   public _id?: string;
+  public code?: string;
   public name?: string;
   public createdAt?: Date;
   public updatedAt?: Date;
@@ -17,6 +19,7 @@ export class BranchEntity implements BranchEntityInterface {
 
   constructor(branch: BranchEntityInterface) {
     this._id = branch._id;
+    this.code = branch.code;
     this.name = branch.name;
     this.createdAt = branch.createdAt;
     this.updatedAt = branch.updatedAt;
