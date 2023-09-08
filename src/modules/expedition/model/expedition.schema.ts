@@ -8,7 +8,7 @@
 import { IDatabaseAdapter } from "@src/database/connection.js";
 import { MongoDBHelper } from "@src/database/mongodb/mongodb-helper.js";
 
-export const collection = "suppliers";
+export const collection = "expeditions";
 
 export async function createCollection(db: IDatabaseAdapter) {
   try {
@@ -26,7 +26,7 @@ export async function createCollection(db: IDatabaseAdapter) {
       properties: {
         name: {
           bsonType: "string",
-          description: "The name for the supplier",
+          description: "The name for the user",
         },
       },
     });
