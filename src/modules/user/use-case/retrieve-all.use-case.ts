@@ -74,7 +74,7 @@ export class RetrieveAllUserUseCase {
       }
 
       const response = await new AggregateUserRepository(this.db).handle(pipeline, query, options);
-      console.log(response);
+
       return {
         data: response.data,
         pagination: response.pagination,

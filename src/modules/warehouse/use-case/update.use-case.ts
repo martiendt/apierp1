@@ -26,6 +26,7 @@ export class UpdateWarehouseUseCase {
 
       // update database
       const warehouseEntity = new WarehouseEntity({
+        branch_id: document.branch_id,
         code: document.code,
         name: document.name,
         updatedAt: new Date(),

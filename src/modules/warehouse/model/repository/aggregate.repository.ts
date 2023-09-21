@@ -11,7 +11,7 @@ export class AggregateWarehouseRepository {
   constructor(databaseConnection: DatabaseConnection) {
     this.databaseManager = new DatabaseManager(databaseConnection, "warehouses");
   }
-  public async aggregate(
+  public async handle(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     pipeline: any[],
     query: AggregateQueryInterface,
