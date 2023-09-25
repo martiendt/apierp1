@@ -10,5 +10,6 @@ router.patch("/:id", controller.updateController);
 router.delete("/:id", controller.deleteController);
 router.post("/signin", controller.signinController);
 router.post("/verify-token", controller.verifyTokenController);
+router.post("/verify-password", controller.verifyPasswordController);
 
 export default router;
