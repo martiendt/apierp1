@@ -31,6 +31,7 @@ export class UpdateSupplierUseCase {
         address: document.address,
         phone: document.phone,
         email: document.email,
+        notes: document.notes,
         updatedAt: new Date(),
         updatedBy_id: authUser._id,
       });

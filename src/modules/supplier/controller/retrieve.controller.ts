@@ -16,6 +16,7 @@ export const retrieveController = async (req: Request, res: Response, next: Next
       address: result.address,
       phone: result.phone,
       email: result.email,
+      notes: result.notes,
       createdAt: result.createdAt,
     });
   } catch (error) {

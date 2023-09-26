@@ -32,6 +32,7 @@ export class CreateSupplierUseCase {
           address: document.address,
           phone: document.phone,
           email: document.email,
+          notes: document.notes,
           createdAt: new Date(),
           createdBy_id: authUser._id,
         })

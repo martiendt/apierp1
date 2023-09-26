@@ -24,6 +24,7 @@ export class RetrieveAllSupplierUseCase {
           { address: { $regex: filter.address ?? "", $options: "i" } },
           { phone: { $regex: filter.phone ?? "", $options: "i" } },
           { email: { $regex: filter.email ?? "", $options: "i" } },
+          { notes: { $regex: filter.notes ?? "", $options: "i" } },
         ],
       };
       const response = await new RetrieveAllSupplierRepository(this.db).handle(query, options);

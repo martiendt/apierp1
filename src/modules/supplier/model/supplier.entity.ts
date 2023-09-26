@@ -5,6 +5,7 @@ export interface SupplierEntityInterface {
   address?: string;
   phone?: string;
   email?: string;
+  notes?: string;
   createdAt?: Date;
   updatedAt?: Date;
   createdBy_id?: string;
@@ -18,6 +19,7 @@ export class SupplierEntity implements SupplierEntityInterface {
   public address?: string;
   public phone?: string;
   public email?: string;
+  public notes?: string;
   public createdAt?: Date;
   public updatedAt?: Date;
   public createdBy_id?: string;
@@ -30,6 +32,7 @@ export class SupplierEntity implements SupplierEntityInterface {
     this.address = supplier.address;
     this.phone = supplier.phone;
     this.email = supplier.email;
+    this.notes = supplier.notes;
     this.createdAt = supplier.createdAt;
     this.updatedAt = supplier.updatedAt;
     this.createdBy_id = supplier.createdBy_id;

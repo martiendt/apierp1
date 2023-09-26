@@ -9,6 +9,7 @@ export interface ResponseInterface {
   address?: string;
   phone?: string;
   email?: string;
+  notes?: string;
   createdAt?: Date;
 }
 
@@ -36,6 +37,7 @@ export class RetrieveSupplierUseCase {
         address: response.address,
         phone: response.phone,
         email: response.email,
+        notes: response.notes,
         createdAt: response.createdAt,
       };
     } catch (error) {

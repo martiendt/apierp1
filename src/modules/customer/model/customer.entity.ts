@@ -5,6 +5,7 @@ export interface CustomerEntityInterface {
   address?: string;
   phone?: string;
   email?: string;
+  notes?: string;
   createdAt?: Date;
   updatedAt?: Date;
   createdBy_id?: string;
@@ -18,6 +19,7 @@ export class CustomerEntity implements CustomerEntityInterface {
   public address?: string;
   public phone?: string;
   public email?: string;
+  public notes?: string;
   public createdAt?: Date;
   public updatedAt?: Date;
   public createdBy_id?: string;
@@ -30,6 +32,7 @@ export class CustomerEntity implements CustomerEntityInterface {
     this.address = customer.address;
     this.phone = customer.phone;
     this.email = customer.email;
+    this.notes = customer.notes;
     this.createdAt = customer.createdAt;
     this.updatedAt = customer.updatedAt;
     this.createdBy_id = customer.createdBy_id;
