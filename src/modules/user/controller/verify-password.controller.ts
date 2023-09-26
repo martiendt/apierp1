@@ -23,7 +23,9 @@ export const verifyPasswordController = async (req: Request, res: Response, next
     });
 
     await db.commitTransaction();
-    res.status(204).json();
+    res.status(204).json({
+      status: "success",
+    });
   } catch (error) {
     await db.abortTransaction();
     next(error);
