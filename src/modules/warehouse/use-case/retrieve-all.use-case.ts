@@ -13,7 +13,9 @@ export class RetrieveAllWarehouseUseCase {
     try {
       const filter = query.filter;
       query.filter = {
-        $or: [{ name: { $regex: filter.name ?? "", $options: "i" } }],
+        $or: [
+          { name: { $regex: filter.name ?? "", $options: "i" }, code: { $regex: filter.name ?? "", $options: "i" } },
+        ],
       };
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -33,6 +33,11 @@ export class CreateCustomerUseCase {
           phone: document.phone,
           email: document.email,
           notes: document.notes,
+          creditLimit: document.creditLimit,
+          bankName: document.bankName,
+          bankBranch: document.bankBranch,
+          accountName: document.accountName,
+          accountNumber: document.accountNumber,
           createdAt: new Date(),
           createdBy_id: authUser._id,
         })

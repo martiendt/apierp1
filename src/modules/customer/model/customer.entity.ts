@@ -10,6 +10,11 @@ export interface CustomerEntityInterface {
   updatedAt?: Date;
   createdBy_id?: string;
   updatedBy_id?: string;
+  bankBranch?: string;
+  bankName?: string;
+  accountName?: string;
+  accountNumber?: string;
+  creditLimit?: number;
 }
 
 export class CustomerEntity implements CustomerEntityInterface {
@@ -20,6 +25,11 @@ export class CustomerEntity implements CustomerEntityInterface {
   public phone?: string;
   public email?: string;
   public notes?: string;
+  public bankBranch?: string;
+  public bankName?: string;
+  public accountName?: string;
+  public accountNumber?: string;
+  public creditLimit?: number;
   public createdAt?: Date;
   public updatedAt?: Date;
   public createdBy_id?: string;
@@ -33,6 +43,11 @@ export class CustomerEntity implements CustomerEntityInterface {
     this.phone = customer.phone;
     this.email = customer.email;
     this.notes = customer.notes;
+    this.bankBranch = customer.bankBranch;
+    this.bankName = customer.bankName;
+    this.accountName = customer.accountName;
+    this.accountNumber = customer.accountNumber;
+    this.creditLimit = customer.creditLimit;
     this.createdAt = customer.createdAt;
     this.updatedAt = customer.updatedAt;
     this.createdBy_id = customer.createdBy_id;

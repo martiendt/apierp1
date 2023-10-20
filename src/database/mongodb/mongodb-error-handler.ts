@@ -4,7 +4,6 @@ import { MongoServerError } from "mongodb";
 
 export default class MongoError extends BaseError {
   constructor(err: MongoServerError) {
-    console.log(err);
     const error: IError = find(400) as IHttpStatus;
     if (err.code === 121) {
       // handle schema validation error
