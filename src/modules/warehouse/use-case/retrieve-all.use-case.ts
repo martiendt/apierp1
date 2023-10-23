@@ -12,10 +12,12 @@ export class RetrieveAllWarehouseUseCase {
   public async handle(query: QueryInterface, options: RetrieveAllOptionsInterface) {
     try {
       const filter = query.filter;
+      const filterArray = [];
+      filterArray.push({ code: { $regex: filter.code ?? "", $options: "i" } });
+      filterArray.push({ name: { $regex: filter.name ?? "", $options: "i" } });
+      filterArray.push({ "branch.name": { $regex: filter.name ?? "", $options: "i" } });
       query.filter = {
-        $or: [
-          { name: { $regex: filter.name ?? "", $options: "i" }, code: { $regex: filter.name ?? "", $options: "i" } },
-        ],
+        $or: filterArray,
       };
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
