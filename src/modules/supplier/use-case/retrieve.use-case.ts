@@ -10,6 +10,12 @@ export interface ResponseInterface {
   phone?: string;
   email?: string;
   notes?: string;
+  bankBranch?: string;
+  bankName?: string;
+  accountName?: string;
+  accountNumber?: string;
+  creditLimit?: number;
+
   createdAt?: Date;
 }
 
@@ -38,6 +44,12 @@ export class RetrieveSupplierUseCase {
         phone: response.phone,
         email: response.email,
         notes: response.notes,
+        bankBranch: response.bankBranch,
+        bankName: response.bankName,
+        accountName: response.accountName,
+        accountNumber: response.accountNumber,
+        creditLimit: response.creditLimit,
+
         createdAt: response.createdAt,
       };
     } catch (error) {

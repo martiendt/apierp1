@@ -32,6 +32,12 @@ export class UpdateSupplierUseCase {
         phone: document.phone,
         email: document.email,
         notes: document.notes,
+        bankBranch: document.bankBranch,
+        bankName: document.bankName,
+        accountNumber: document.accountNumber,
+        accountName: document.accountName,
+        creditLimit: document.creditLimit,
+
         updatedAt: new Date(),
         updatedBy_id: authUser._id,
       });

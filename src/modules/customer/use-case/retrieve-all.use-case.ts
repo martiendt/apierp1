@@ -18,14 +18,22 @@ export class RetrieveAllCustomerUseCase {
       await verifyTokenUserService.handle(options.authorizationHeader ?? "");
 
       const filter = query.filter;
+      const filterArray = [];
+      filterArray.push({ name: { $regex: filter.name ?? "", $options: "i" } });
+      if (filter.address) {
+        filterArray.push({ address: { $regex: filter.address ?? "", $options: "i" } });
+      }
+      if (filter.phone) {
+        filterArray.push({ phone: { $regex: filter.phone ?? "", $options: "i" } });
+      }
+      if (filter.email) {
+        filterArray.push({ email: { $regex: filter.email ?? "", $options: "i" } });
+      }
+      if (filter.notes) {
+        filterArray.push({ notes: { $regex: filter.notes ?? "", $options: "i" } });
+      }
       query.filter = {
-        $or: [
-          { name: { $regex: filter.name ?? "", $options: "i" } },
-          { address: { $regex: filter.address ?? "", $options: "i" } },
-          { phone: { $regex: filter.phone ?? "", $options: "i" } },
-          { email: { $regex: filter.email ?? "", $options: "i" } },
-          { notes: { $regex: filter.notes ?? "", $options: "i" } },
-        ],
+        $or: filterArray,
       };
       const response = await new RetrieveAllCustomerRepository(this.db).handle(query, options);
 

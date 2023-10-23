@@ -17,6 +17,11 @@ export const retrieveController = async (req: Request, res: Response, next: Next
       phone: result.phone,
       email: result.email,
       notes: result.notes,
+      bankName: result.bankName,
+      bankBranch: result.bankBranch,
+      accountName: result.accountName,
+      accountNumber: result.accountNumber,
+      creditLimit: result.creditLimit,
       createdAt: result.createdAt,
     });
   } catch (error) {
