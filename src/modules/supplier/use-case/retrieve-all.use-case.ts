@@ -19,6 +19,7 @@ export class RetrieveAllSupplierUseCase {
 
       const filter = query.filter;
       const filterArray = [];
+      filterArray.push({ code: { $regex: filter.code ?? "", $options: "i" } });
       filterArray.push({ name: { $regex: filter.name ?? "", $options: "i" } });
       if (filter.address) {
         filterArray.push({ address: { $regex: filter.address ?? "", $options: "i" } });
