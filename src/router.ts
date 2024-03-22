@@ -9,6 +9,7 @@ import financeRouter from "./modules/finance/router.js";
 import inventoryRouter from "./modules/inventory/router.js";
 import itemRouter from "./modules/item/router.js";
 import itemCategoryRouter from "./modules/item-category/router.js";
+import machineRouter from "./modules/machine/router.js";
 import posRouter from "./modules/pos/router.js";
 import purchaseRouter from "./modules/purchase/router.js";
 import stockCorrectionRouter from "./modules/stock-correction/router.js";
@@ -26,6 +27,7 @@ export default function () {
    * <modules>/router.ts
    */
   app.use("/v1/users", userRouter);
+  app.use("/v1/machines", machineRouter);
   app.use("/v1/allocations", allocationRouter);
   app.use("/v1/allocation-groups", allocationGroupRouter);
   app.use("/v1/branches", branchRouter);
