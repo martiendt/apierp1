@@ -11,6 +11,7 @@ import itemRouter from "./modules/item/router.js";
 import itemCategoryRouter from "./modules/item-category/router.js";
 import machineRouter from "./modules/machine/router.js";
 import posRouter from "./modules/pos/router.js";
+import processRouter from "./modules/process/router.js";
 import purchaseRouter from "./modules/purchase/router.js";
 import stockCorrectionRouter from "./modules/stock-correction/router.js";
 import stockOpnameRouter from "./modules/stock-opname/router.js";
@@ -28,6 +29,7 @@ export default function () {
    */
   app.use("/v1/users", userRouter);
   app.use("/v1/machines", machineRouter);
+  app.use("/v1/processes", processRouter);
   app.use("/v1/allocations", allocationRouter);
   app.use("/v1/allocation-groups", allocationGroupRouter);
   app.use("/v1/branches", branchRouter);
