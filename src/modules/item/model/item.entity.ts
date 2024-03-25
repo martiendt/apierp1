@@ -1,12 +1,9 @@
 export interface ItemEntityInterface {
   _id?: string;
-  photoUrl?: string;
-  itemCategory_id?: string;
-  barcode?: string;
+  code?: string;
   name?: string;
-  size?: string;
-  color?: string;
-  sellingPrice?: number;
+  unit?: string;
+  notes?: string;
   createdAt?: Date;
   updatedAt?: Date;
   createdBy_id?: string;
@@ -15,13 +12,10 @@ export interface ItemEntityInterface {
 
 export class ItemEntity implements ItemEntityInterface {
   public _id?: string;
-  public photoUrl?: string;
-  public itemCategory_id?: string;
-  public barcode?: string;
+  public code?: string;
   public name?: string;
-  public size?: string;
-  public color?: string;
-  public sellingPrice?: number;
+  public unit?: string;
+  public notes?: string;
   public createdAt?: Date;
   public updatedAt?: Date;
   public createdBy_id?: string;
@@ -29,13 +23,10 @@ export class ItemEntity implements ItemEntityInterface {
 
   constructor(item: ItemEntityInterface) {
     this._id = item._id;
-    this.photoUrl = item.photoUrl;
-    this.itemCategory_id = item.itemCategory_id;
-    this.barcode = item.barcode;
+    this.code = item.code;
     this.name = item.name;
-    this.size = item.size;
-    this.color = item.color;
-    this.sellingPrice = item.sellingPrice;
+    this.unit = item.unit;
+    this.notes = item.notes;
     this.createdAt = item.createdAt;
     this.updatedAt = item.updatedAt;
     this.createdBy_id = item.createdBy_id;

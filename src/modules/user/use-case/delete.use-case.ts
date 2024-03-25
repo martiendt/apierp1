@@ -7,7 +7,6 @@ import { RetrieveAllCustomerRepository } from "@src/modules/customer/model/repos
 import { RetrieveAllItemRepository } from "@src/modules/item/model/repository/retrieve-all.repository.js";
 import { RetrieveAllItemCategoryRepository } from "@src/modules/item-category/model/repository/retrieve-all.repository.js";
 import { RetrieveAllPosRepository } from "@src/modules/pos/model/repository/retrieve-all.repository.js";
-import { RetrieveAllPurchaseRepository } from "@src/modules/purchase/model/repository/retrieve-all.repository.js";
 import { RetrieveAllStockCorrectionRepository } from "@src/modules/stock-correction/model/repository/retrieve-all.repository.js";
 import { RetrieveAllSupplierRepository } from "@src/modules/supplier/model/repository/retrieve-all.repository.js";
 import { RetrieveAllTransferItemRepository } from "@src/modules/transfer-item/model/repository/retrieve-all.repository.js";
@@ -129,19 +128,6 @@ export class DeleteUserUseCase {
         sort: "",
       } as QueryInterface);
       if (stockCorrectionData.data.length > 0) {
-        throw new ApiError(400);
-      }
-
-      const purchase = await new RetrieveAllPurchaseRepository(this.db).handle({
-        fields: "",
-        filter: {
-          createdBy_id: id,
-        },
-        page: 1,
-        pageSize: 1,
-        sort: "",
-      } as QueryInterface);
-      if (purchase.data.length > 0) {
         throw new ApiError(400);
       }
 

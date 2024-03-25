@@ -11,12 +11,10 @@ export const retrieveController = async (req: Request, res: Response, next: Next
 
     res.status(200).json({
       _id: result._id,
-      barcode: result.barcode,
+      code: result.code,
       name: result.name,
-      color: result.color,
-      size: result.size,
-      sellingPrice: result.sellingPrice,
-      itemCategory: result.itemCategory,
+      unit: result.unit,
+      notes: result.notes,
       createdAt: result.createdAt,
     });
   } catch (error) {

@@ -12,7 +12,6 @@ import itemCategoryRouter from "./modules/item-category/router.js";
 import machineRouter from "./modules/machine/router.js";
 import posRouter from "./modules/pos/router.js";
 import processRouter from "./modules/process/router.js";
-import purchaseRouter from "./modules/purchase/router.js";
 import stockCorrectionRouter from "./modules/stock-correction/router.js";
 import stockOpnameRouter from "./modules/stock-opname/router.js";
 import supplierRouter from "./modules/supplier/router.js";
@@ -39,7 +38,6 @@ export default function () {
   app.use("/v1/expeditions", expeditionRouter);
   app.use("/v1/item-categories", itemCategoryRouter);
   app.use("/v1/items", itemRouter);
-  app.use("/v1/purchases", purchaseRouter);
   app.use("/v1/transfer-items", transferItemRouter);
   app.use("/v1/stock-corrections", stockCorrectionRouter);
   app.use("/v1/stock-opnames", stockOpnameRouter);

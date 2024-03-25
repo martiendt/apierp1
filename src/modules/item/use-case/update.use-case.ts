@@ -26,15 +26,18 @@ export class UpdateItemUseCase {
 
       // update database
       const itemEntity = new ItemEntity({
+        code: document.code,
         name: document.name,
-        itemCategory_id: document.itemCategory_id,
-        sellingPrice: document.sellingPrice,
+        unit: document.unit,
+        notes: document.notes,
         updatedAt: new Date(),
         updatedBy_id: authUser._id,
       });
 
       const itemRepository = new UpdateItemRepository(this.db);
-      await itemRepository.handle(id, objClean(itemEntity), options);
+      await itemRepository.handle(id, objClean(itemEntity), {
+        session: options.session,
+      });
 
       return;
     } catch (error) {

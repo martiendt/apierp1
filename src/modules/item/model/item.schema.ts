@@ -22,24 +22,23 @@ export async function createCollection(db: IDatabaseAdapter) {
     console.info(`[schema] ${collection} - update schema`);
     await db.updateSchema(collection, {
       bsonType: "object",
-      required: ["name", "barcode"],
+      required: ["code", "name"],
       properties: {
         name: {
           bsonType: "string",
-          description: "The name for the item",
-        },
-        barcode: {
-          bsonType: "string",
-          description: "The barcode for the item",
+          description: "The name for the user",
         },
       },
+    });
+
+    console.info(`[schema] ${collection} - create unique attribute "code"`);
+    await helper.createUnique(collection, {
+      code: -1,
     });
 
     console.info(`[schema] ${collection} - create unique attribute "name"`);
     await helper.createUnique(collection, {
       name: -1,
-      size: -1,
-      color: -1,
     });
   } catch (error) {
     throw error;

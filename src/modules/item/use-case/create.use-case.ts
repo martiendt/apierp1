@@ -27,14 +27,18 @@ export class CreateItemUseCase {
       // save to database
       const itemEntity = objClean(
         new ItemEntity({
+          code: document.code,
           name: document.name,
-          sellingPrice: document.sellingPrice,
+          unit: document.unit,
+          notes: document.notes,
           createdAt: new Date(),
           createdBy_id: authUser._id,
         })
       );
 
-      const response = await new CreateItemRepository(this.db).handle(itemEntity, options);
+      const response = await new CreateItemRepository(this.db).handle(itemEntity, {
+        session: options.session,
+      });
 
       return {
         acknowledged: response.acknowledged,

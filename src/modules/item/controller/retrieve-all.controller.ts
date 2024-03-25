@@ -13,8 +13,8 @@ export const retrieveAllController = async (req: Request, res: Response, next: N
       sort: (req.query.sort as string) ?? "",
     };
 
-    const retrieveAllUseCase = new RetrieveAllItemUseCase(db);
-    const result = await retrieveAllUseCase.handle(query as unknown as QueryInterface, {
+    const createItemUseCase = new RetrieveAllItemUseCase(db);
+    const result = await createItemUseCase.handle(query as unknown as QueryInterface, {
       authorizationHeader: req.headers.authorization ?? "",
     });
 
