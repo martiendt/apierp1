@@ -20,9 +20,15 @@ export class RetrieveAllUserUseCase {
 
       const filter = query.filter;
       query.filter = {
-        $or: [{ name: { $regex: filter.name ?? "", $options: "i" } }],
+        $or: [
+          { name: { $regex: filter.name ?? "", $options: "i" } },
+          { username: { $regex: filter.name ?? "", $options: "i" } },
+          { role: { $regex: filter.name ?? "", $options: "i" } },
+          { "branch.name": { $regex: filter.name ?? "", $options: "i" } },
+          { "warehouse.name": { $regex: filter.name ?? "", $options: "i" } },
+        ],
       };
-
+      console.log(query.filter);
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const pipeline: any[] = [
         {

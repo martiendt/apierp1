@@ -43,6 +43,10 @@ export async function createCollection(db: IDatabaseAdapter) {
       },
     });
 
+    console.info(`[schema] ${collection} - create unique attribute "name"`);
+    await helper.createUnique(collection, {
+      name: -1,
+    });
     console.info(`[schema] ${collection} - create unique attribute "username"`);
     await helper.createUnique(collection, {
       username: -1,
