@@ -31,10 +31,11 @@ export async function createCollection(db: IDatabaseAdapter) {
       },
     });
 
-    console.info(`[schema] ${collection} - create unique attribute "name"`);
+    console.info(`[schema] ${collection} - create unique attribute "code"`);
     await helper.createUnique(collection, {
       code: -1,
     });
+    console.info(`[schema] ${collection} - create unique attribute "name"`);
     await helper.createUnique(collection, {
       name: -1,
     });
