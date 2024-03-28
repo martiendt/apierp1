@@ -29,6 +29,7 @@ export class CreateMachineUseCase {
         new MachineEntity({
           code: document.code,
           name: document.name,
+          notes: document.notes,
           createdAt: new Date(),
           createdBy_id: authUser._id,
         })

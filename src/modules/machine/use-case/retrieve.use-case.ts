@@ -6,6 +6,7 @@ interface ResponseInterface {
   _id: string;
   code?: string;
   name?: string;
+  notes?: string;
   createdAt?: Date;
 }
 
@@ -30,6 +31,7 @@ export class RetrieveMachineUseCase {
         _id: response._id,
         code: response.code,
         name: response.name,
+        notes: response.notes,
         createdAt: response.createdAt,
       };
     } catch (error) {

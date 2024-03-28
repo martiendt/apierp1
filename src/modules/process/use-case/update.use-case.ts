@@ -26,7 +26,9 @@ export class UpdateMachineUseCase {
 
       // update database
       const machineEntity = new MachineEntity({
+        code: document.code,
         name: document.name,
+        notes: document.notes,
         updatedAt: new Date(),
         updatedBy_id: authUser._id,
       });

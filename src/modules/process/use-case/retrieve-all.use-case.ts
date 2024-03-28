@@ -22,6 +22,7 @@ export class RetrieveAllMachineUseCase {
         $or: [
           { code: { $regex: filter.code ?? "", $options: "i" } },
           { name: { $regex: filter.name ?? "", $options: "i" } },
+          { notes: { $regex: filter.name ?? "", $options: "i" } },
         ],
       };
       const response = await new RetrieveAllMachineRepository(this.db).handle(query, options);
