@@ -8,6 +8,7 @@ interface ResponseInterface {
   _id: string;
   name?: string;
   username?: string;
+  email?: string;
   role?: string;
   warehouse: {
     _id: string;

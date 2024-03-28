@@ -30,6 +30,7 @@ export class CreateUserUseCase {
         new UserEntity({
           name: document.name,
           username: document.username,
+          email: document.email,
           password: await hash(document.password),
           role: document.role,
           branch_id: document.branch_id,

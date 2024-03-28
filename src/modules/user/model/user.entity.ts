@@ -16,6 +16,7 @@ export interface UserEntityInterface {
   warehouse_id?: string;
   name?: string;
   username?: string;
+  email?: string;
   password?: string;
   role?: UserRolesTypes;
   status?: UserStatusTypes;
@@ -31,6 +32,7 @@ export class UserEntity implements UserEntityInterface {
   public warehouse_id?: string;
   public name?: string;
   public username?: string;
+  public email?: string;
   public password?: string;
   public role?: UserRolesTypes;
   public status?: UserStatusTypes;
@@ -45,6 +47,7 @@ export class UserEntity implements UserEntityInterface {
     this.warehouse_id = user.warehouse_id;
     this.name = user.name;
     this.username = user.username;
+    this.email = user.email;
     this.password = user.password;
     this.role = user.role;
     this.status = user.status;

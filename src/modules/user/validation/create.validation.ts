@@ -8,6 +8,7 @@ export const validate = (document: DocumentInterface) => {
     const validation = new Validatorjs(document, {
       name: "required|string",
       username: "required|string",
+      email: "required|string",
       password: "required|string",
       role: "required|string",
       warehouse_id: "required|string",

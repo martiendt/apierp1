@@ -23,6 +23,7 @@ export class RetrieveAllUserUseCase {
         $or: [
           { name: { $regex: filter.name ?? "", $options: "i" } },
           { username: { $regex: filter.name ?? "", $options: "i" } },
+          { email: { $regex: filter.name ?? "", $options: "i" } },
           { role: { $regex: filter.name ?? "", $options: "i" } },
           { "branch.name": { $regex: filter.name ?? "", $options: "i" } },
           { "warehouse.name": { $regex: filter.name ?? "", $options: "i" } },
