@@ -97,6 +97,7 @@ export class RetrieveUserUseCase {
         _id: response.data[0]._id,
         name: response.data[0].name,
         username: response.data[0].username,
+        email: response.data[0].email,
         role: response.data[0].role,
         warehouse: response.data[0].warehouse,
         branch: response.data[0].branch,

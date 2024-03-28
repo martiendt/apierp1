@@ -13,6 +13,7 @@ export const retrieveController = async (req: Request, res: Response, next: Next
       _id: result._id,
       name: result.name,
       username: result.username,
+      email: result.email,
       role: result.role,
       warehouse: result.warehouse,
       branch: result.branch,
