@@ -13,6 +13,7 @@ export const retrieveController = async (req: Request, res: Response, next: Next
       _id: result._id,
       code: result.code,
       name: result.name,
+      notes: result.notes,
       createdAt: result.createdAt,
     });
   } catch (error) {
