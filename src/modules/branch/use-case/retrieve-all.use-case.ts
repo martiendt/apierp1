@@ -22,6 +22,8 @@ export class RetrieveAllBranchUseCase {
         $or: [
           { code: { $regex: filter.code ?? "", $options: "i" } },
           { name: { $regex: filter.name ?? "", $options: "i" } },
+          { address: { $regex: filter.name ?? "", $options: "i" } },
+          { phone: { $regex: filter.name ?? "", $options: "i" } },
         ],
       };
       const response = await new RetrieveAllBranchRepository(this.db).handle(query, options);

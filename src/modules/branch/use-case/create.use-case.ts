@@ -29,6 +29,8 @@ export class CreateBranchUseCase {
         new BranchEntity({
           code: document.code,
           name: document.name,
+          address: document.address,
+          phone: document.phone,
           createdAt: new Date(),
           createdBy_id: authUser._id,
         })

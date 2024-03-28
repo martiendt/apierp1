@@ -28,6 +28,8 @@ export class UpdateBranchUseCase {
       const branchEntity = new BranchEntity({
         code: document.code,
         name: document.name,
+        address: document.address,
+        phone: document.phone,
         updatedAt: new Date(),
         updatedBy_id: authUser._id,
       });

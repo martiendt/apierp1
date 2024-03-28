@@ -6,6 +6,8 @@ interface ResponseInterface {
   _id: string;
   code?: string;
   name?: string;
+  address?: string;
+  phone?: string;
   createdAt?: Date;
 }
 
@@ -30,6 +32,8 @@ export class RetrieveBranchUseCase {
         _id: response._id,
         code: response.code,
         name: response.name,
+        address: response.address,
+        phone: response.phone,
         createdAt: response.createdAt,
       };
     } catch (error) {
