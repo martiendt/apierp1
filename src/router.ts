@@ -3,6 +3,7 @@ import allocationRouter from "./modules/allocation/router.js";
 import allocationGroupRouter from "./modules/allocation-group/router.js";
 import branchRouter from "./modules/branch/router.js";
 import brancExpenseRouter from "./modules/branch-expense/router.js";
+import coaRouter from "./modules/chart-of-account/router.js";
 import customerRouter from "./modules/customer/router.js";
 import customerGroupRouter from "./modules/customer-group/router.js";
 import expeditionRouter from "./modules/expedition/router.js";
@@ -36,6 +37,7 @@ export default function () {
   app.use("/v1/branches", branchRouter);
   app.use("/v1/warehouses", warehouseRouter);
   app.use("/v1/suppliers", supplierRouter);
+  app.use("/v1/coas", coaRouter);
   app.use("/v1/customer-groups", customerGroupRouter);
   app.use("/v1/supplier-groups", supplierGroupRouter);
   app.use("/v1/customers", customerRouter);
