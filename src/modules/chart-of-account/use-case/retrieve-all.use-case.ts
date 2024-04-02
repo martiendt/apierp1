@@ -22,16 +22,15 @@ export class RetrieveAllCoaUseCase {
       query.filter = {
         $or: [
           { name: { $regex: filter.name ?? "", $options: "i" } },
-          { number: { $regex: filter.name ?? "", $options: "i" } },
+          { numberStr: { $regex: filter.name ?? "", $options: "i" } },
           { category: { $regex: filter.name ?? "", $options: "i" } },
           { type: { $regex: filter.name ?? "", $options: "i" } },
           { subledger: { $regex: filter.name ?? "", $options: "i" } },
           { increasing_in: { $regex: filter.name ?? "", $options: "i" } },
         ],
       };
-      console.log(query.filter);
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const pipeline: any[] = [];
+      const pipeline: any[] = [{ $addFields: { numberStr: { $toString: "$number" } } }];
 
       if (query && query.fields) {
         pipeline.push({ $project: fields(query.fields) });
