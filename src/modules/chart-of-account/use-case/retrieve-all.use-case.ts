@@ -22,11 +22,11 @@ export class RetrieveAllCoaUseCase {
       query.filter = {
         $or: [
           { name: { $regex: filter.name ?? "", $options: "i" } },
-          { coaname: { $regex: filter.name ?? "", $options: "i" } },
-          { email: { $regex: filter.name ?? "", $options: "i" } },
-          { role: { $regex: filter.name ?? "", $options: "i" } },
-          { "branch.name": { $regex: filter.name ?? "", $options: "i" } },
-          { "warehouse.name": { $regex: filter.name ?? "", $options: "i" } },
+          { number: { $regex: filter.name ?? "", $options: "i" } },
+          { category: { $regex: filter.name ?? "", $options: "i" } },
+          { type: { $regex: filter.name ?? "", $options: "i" } },
+          { subledger: { $regex: filter.name ?? "", $options: "i" } },
+          { increasing_in: { $regex: filter.name ?? "", $options: "i" } },
         ],
       };
       console.log(query.filter);
