@@ -1,4 +1,4 @@
-import { objClean } from "@point-hub/express-utils";
+import { objClean, trim } from "@point-hub/express-utils";
 import { CoaEntity } from "../model/coa.entity.js";
 import { UpdateCoaRepository } from "../model/repository/update.repository.js";
 import { validate } from "../validation/update.validation.js";
@@ -28,8 +28,8 @@ export class UpdateCoaUseCase {
       const coaEntity = new CoaEntity({
         type: document.type,
         category: document.category,
-        number: document.number,
-        name: document.name,
+        number: trim(document.number),
+        name: trim(document.name),
         increasing_in: document.increasing_in,
         subledger: document.subledger,
         updatedAt: new Date(),

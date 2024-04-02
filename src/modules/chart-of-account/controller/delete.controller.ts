@@ -7,7 +7,7 @@ export const deleteController = async (req: Request, res: Response, next: NextFu
     const session = db.startSession();
 
     db.startTransaction();
-
+    console.log("delete");
     const deleteCoaUseCase = new DeleteCoaUseCase(db);
     await deleteCoaUseCase.handle(req.params.id, { session, authorizationHeader: req.headers.authorization ?? "" });
 
