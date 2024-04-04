@@ -33,14 +33,10 @@ export class CreateSettingJournalUseCase {
             coa_id: element.coa_id,
           })
         );
-
-        const response = await new UpdateSettingJournalRepository(this.db).handle(
-          settingJournalEntity._id,
-          settingJournalEntity,
-          {
-            session: options.session,
-          }
-        );
+        const id: string = element._id;
+        await new UpdateSettingJournalRepository(this.db).handle(id, settingJournalEntity, {
+          session: options.session,
+        });
       }
 
       return {};
