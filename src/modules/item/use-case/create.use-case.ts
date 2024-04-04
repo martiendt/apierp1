@@ -31,6 +31,8 @@ export class CreateItemUseCase {
           name: document.name,
           unit: document.unit,
           notes: document.notes,
+          item_category_id: document.item_category_id,
+          coa_id: document.coa_id,
           createdAt: new Date(),
           createdBy_id: authUser._id,
         })

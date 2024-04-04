@@ -8,6 +8,8 @@ export interface ResponseInterface {
   name?: string;
   unit?: string;
   notes?: string;
+  item_category_id?: string;
+  coa_id?: string;
   createdAt?: Date;
 }
 
@@ -34,6 +36,8 @@ export class RetrieveItemUseCase {
         name: response.name,
         unit: response.unit,
         notes: response.notes,
+        item_category_id: response.item_category_id,
+        coa_id: response.coa_id,
         createdAt: response.createdAt,
       };
     } catch (error) {

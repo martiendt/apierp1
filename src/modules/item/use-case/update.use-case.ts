@@ -29,6 +29,8 @@ export class UpdateItemUseCase {
         code: document.code,
         name: document.name,
         unit: document.unit,
+        item_category_id: document.item_category_id,
+        coa_id: document.coa_id,
         notes: document.notes,
         updatedAt: new Date(),
         updatedBy_id: authUser._id,

@@ -14,6 +14,7 @@ import itemCategoryRouter from "./modules/item-category/router.js";
 import machineRouter from "./modules/machine/router.js";
 import posRouter from "./modules/pos/router.js";
 import processRouter from "./modules/process/router.js";
+import settingJournalRouter from "./modules/setting-journal/router.js";
 import stockCorrectionRouter from "./modules/stock-correction/router.js";
 import stockOpnameRouter from "./modules/stock-opname/router.js";
 import supplierRouter from "./modules/supplier/router.js";
@@ -30,6 +31,7 @@ export default function () {
    * <modules>/router.ts
    */
   app.use("/v1/users", userRouter);
+  app.use("/v1/setting-journals", settingJournalRouter);
   app.use("/v1/machines", machineRouter);
   app.use("/v1/processes", processRouter);
   app.use("/v1/allocations", allocationRouter);

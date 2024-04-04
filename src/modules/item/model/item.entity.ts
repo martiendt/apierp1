@@ -4,6 +4,8 @@ export interface ItemEntityInterface {
   name?: string;
   unit?: string;
   notes?: string;
+  item_category_id?: string;
+  coa_id?: string;
   createdAt?: Date;
   updatedAt?: Date;
   createdBy_id?: string;
@@ -16,6 +18,8 @@ export class ItemEntity implements ItemEntityInterface {
   public name?: string;
   public unit?: string;
   public notes?: string;
+  public item_category_id?: string;
+  public coa_id?: string;
   public createdAt?: Date;
   public updatedAt?: Date;
   public createdBy_id?: string;
@@ -27,6 +31,8 @@ export class ItemEntity implements ItemEntityInterface {
     this.name = item.name;
     this.unit = item.unit;
     this.notes = item.notes;
+    this.item_category_id = item.item_category_id;
+    this.coa_id = item.coa_id;
     this.createdAt = item.createdAt;
     this.updatedAt = item.updatedAt;
     this.createdBy_id = item.createdBy_id;
