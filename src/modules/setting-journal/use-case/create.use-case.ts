@@ -1,6 +1,6 @@
-import { objClean, trim } from "@point-hub/express-utils";
+import { objClean } from "@point-hub/express-utils";
+import { UpdateSettingJournalRepository } from "../model/repository/update.repository.js";
 import { SettingJournalEntity } from "../model/setting-journal.entity.js";
-import { CreateSettingJournalRepository } from "../model/repository/create.repository.js";
 import { validate } from "../validation/create.validation.js";
 import DatabaseConnection, { CreateOptionsInterface, DocumentInterface } from "@src/database/connection.js";
 import { VerifyTokenUseCase } from "@src/modules/user/use-case/verify-token.use-case.js";
@@ -19,33 +19,31 @@ export class CreateSettingJournalUseCase {
        */
       const verifyTokenSettingJournalService = new VerifyTokenUseCase(this.db);
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const authSettingJournal = (await verifyTokenSettingJournalService.handle(options.authorizationHeader ?? "")) as any;
+      await verifyTokenSettingJournalService.handle(options.authorizationHeader ?? "");
 
       // validate request body
       validate(document);
 
-      // save to database
-      const settingJournalEntity = objClean(
-        new SettingJournalEntity({
-          type: document.type,
-          category: document.category,
-          name: trim(document.name),
-          number: trim(document.number),
-          increasing_in: document.increasing_in,
-          subledger: document.subledger,
-          createdAt: new Date(),
-          createdBy_id: authSettingJournal._id,
-        })
-      );
+      for (const element of document.coa) {
+        const settingJournalEntity = objClean(
+          new SettingJournalEntity({
+            _id: element._id,
+            module: element.module,
+            account: element.account,
+            coa_id: element.coa_id,
+          })
+        );
 
-      const response = await new CreateSettingJournalRepository(this.db).handle(settingJournalEntity, {
-        session: options.session,
-      });
+        const response = await new UpdateSettingJournalRepository(this.db).handle(
+          settingJournalEntity._id,
+          settingJournalEntity,
+          {
+            session: options.session,
+          }
+        );
+      }
 
-      return {
-        acknowledged: response.acknowledged,
-        _id: response._id,
-      };
+      return {};
     } catch (error) {
       throw error;
     }

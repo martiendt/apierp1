@@ -13,18 +13,14 @@ export const createController = async (req: Request, res: Response, next: NextFu
     db.startTransaction();
 
     const createSettingJournalUseCase = new CreateSettingJournalUseCase(db);
-    const result = await createSettingJournalUseCase.handle(req.body, {
+    await createSettingJournalUseCase.handle(req.body, {
       session,
       authorizationHeader: req.headers.authorization ?? "",
     });
 
     await db.commitTransaction();
 
-    const responseValue: ResponseInterface = {
-      _id: result._id,
-    };
-
-    res.status(201).json(responseValue);
+    res.status(204).json();
   } catch (error) {
     await db.abortTransaction();
     next(error);

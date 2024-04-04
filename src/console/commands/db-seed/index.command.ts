@@ -25,10 +25,10 @@ export default class DbSeedCommand extends BaseCommand {
       await dbConnection.open();
 
       // seed users colllection
-      // const { userSeeds } = await import("@src/modules/user/model/user.seed.js");
-      // await dbConnection.collection("users").deleteAll();
-      // const userData = await dbConnection.collection("users").createMany(userSeeds);
-      // console.info(`[seed] seeding users data`, userData);
+      const { userSeeds } = await import("@src/modules/user/model/user.seed.js");
+      await dbConnection.collection("users").deleteAll();
+      const userData = await dbConnection.collection("users").createMany(userSeeds);
+      console.info(`[seed] seeding users data`, userData);
 
       // seed warehouses colllection
       // const { warehouseSeeds } = await import("@src/modules/warehouse/model/warehouse.seed.js");
@@ -42,10 +42,10 @@ export default class DbSeedCommand extends BaseCommand {
       // const branchData = await dbConnection.collection("branches").createMany(branchSeeds);
       // console.info(`[seed] seeding branches data`, branchData);
 
-      const { settingJournalSeeds } = await import("@src/modules/setting-journal/model/setting-journal.seed.js");
-      await dbConnection.collection("settingJournals").deleteAll();
-      const branchData = await dbConnection.collection("settingJournals").createMany(settingJournalSeeds);
-      console.info(`[seed] seeding settingJournals data`, branchData);
+      // const { settingJournalSeeds } = await import("@src/modules/setting-journal/model/setting-journal.seed.js");
+      // await dbConnection.collection("settingJournals").deleteAll();
+      // const branchData = await dbConnection.collection("settingJournals").createMany(settingJournalSeeds);
+      // console.info(`[seed] seeding settingJournals data`, branchData);
     } catch (error) {
       console.error(error);
     } finally {

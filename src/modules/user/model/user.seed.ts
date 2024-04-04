@@ -5,7 +5,7 @@ export const userSeeds = [
   {
     name: "Admin",
     username: "admin",
-    password: await hash("admn2023"),
+    password: await hash("aini2023"),
     role: UserRolesTypes.Administrator,
     status: UserStatusTypes.Active,
     createdAt: new Date(),
