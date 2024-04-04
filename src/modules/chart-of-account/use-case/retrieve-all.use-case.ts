@@ -19,6 +19,7 @@ export class RetrieveAllCoaUseCase {
       await verifyTokenCoaService.handle(options.authorizationHeader ?? "");
 
       const filter = query.filter;
+      console.log(filter);
       query.filter = {
         $or: [
           { name: { $regex: filter.name ?? "", $options: "i" } },
@@ -45,7 +46,7 @@ export class RetrieveAllCoaUseCase {
       }
 
       const response = await new AggregateCoaRepository(this.db).handle(pipeline, query, options);
-
+      console.log(response.data.length);
       return {
         data: response.data,
         pagination: response.pagination,
