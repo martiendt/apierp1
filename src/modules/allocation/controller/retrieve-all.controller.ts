@@ -9,7 +9,7 @@ export const retrieveAllController = async (req: Request, res: Response, next: N
       fields: (req.query.fields as string) ?? "",
       filter: (req.query.filter as object) ?? {},
       page: Number(req.query.page ?? 1),
-      pageSize: Number(req.query.pageSize ?? 10),
+      pageSize: Number(100),
       sort: (req.query.sort as string) ?? "",
     };
 
